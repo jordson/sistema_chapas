@@ -32,3 +32,30 @@ INSERT INTO `usuarios` (`id`, `nome`, `senha`, `user_type`) VALUES
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
+
+/*! criação da tabela view */;
+CREATE VIEW chapas_view AS
+SELECT
+    id,
+    nome,
+    peso,
+    usuario_id,
+    nome_usuario
+FROM
+    chapas;
+
+
+/*! criação do usuario publico */;
+
+CREATE USER 'publico'@'%' IDENTIFIED BY 'senha_segura_aqui';
+
+/*! Conceda acesso de visualização à view "chapas_view" para o usuário publico: */;
+
+GRANT SELECT ON sistema_chapa.chapas_view TO 'publico'@'%';
+
+FLUSH PRIVILEGES;
+
+
+
+
