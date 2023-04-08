@@ -48,7 +48,7 @@ FROM
 
 /*! criação do usuario publico */;
 
-CREATE USER 'publico'@'%' IDENTIFIED BY 'senha_segura_aqui';
+CREATE USER 'publico'@'%' IDENTIFIED BY 'senhafacil';
 
 /*! Conceda acesso de visualização à view "chapas_view" para o usuário publico: */;
 
